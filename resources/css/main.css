@@ -1,0 +1,70 @@
+html{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+h4{margin: 0;}
+
+.txt_obligatorio{
+    font-size: 12.5px;
+    line-height: 2.5;
+}
+
+.descripciones{
+    margin: 0;
+    font-size: 12px;
+}
+
+.descripciones span{
+    color: #7D7D7D;
+}
+
+/* header */
+.header{
+    width: 100%;
+    background: rgb(0, 0, 0);
+    height: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.header_logo{
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+/* title */
+.title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.title h1{
+    border-bottom: 1px solid #ccc;
+    font-size: 30px;
+    position: relative;
+}
+
+.title h5{
+    font-size: 18px;
+}
+
+
+/* info */
+.info{
+    border: 1px solid #dadada;
+    text-align: center;
+    font-size: 13px;
+    padding: 8px;
+    background-color: #f9f9f9;
+}
+
+.info p{
+    margin: 0;
+}
