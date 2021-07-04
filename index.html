@@ -13,6 +13,8 @@
     <!-- Main Css -->
     <link href="./resources/css/main.css" rel="stylesheet" type="text/css">
 
+     <!-- Sweetalert2 -->
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Document</title>
 </head>
@@ -42,7 +44,7 @@
         <!-- USUARIO DATOS -->
         <div class="card mt-4">
             <div class="card-header d-flex">
-                <h4><i class="bi bi-person-circle text-danger"></i>  <strong>Identificación del Consumidor Reclamante</strong></h4>
+                <h4><i class="bi bi-file-earmark-person-fill text-danger"></i></i>  <strong>Identificación del Consumidor Reclamante</strong></h4>
                 <span class="text-danger txt_obligatorio"><i><strong>    Datos Obligatorios *</i></strong></span>
             </div>
 
@@ -56,7 +58,7 @@
                 </div>
 
                 <div class="form group col-sm-12 col-md-3">
-                    <label>Apellido Parno<span class="text-danger"> *</span></label>
+                    <label>Apellido Paterno<span class="text-danger"> *</span></label>
                     <input type="text" id="ap_paterno" name="ap_paterno" class="form-control">
                     <span class="text-danger msg_error" id="ap_paterno__error"> </span><br>
                 </div>
@@ -113,7 +115,7 @@
                     <select id="departamento" name="departamento" class="form-control select2">
                         <option value="">Seleccione</option>
                     </select>
-                    <span class="text-danger msg_error" id="departamento__error"></span><br>
+                    <span class="text-danger msg_error" id="departamento_id__error"></span><br>
                 </div>
 
                 <div class="form group col-sm-12 col-md-4">
@@ -121,7 +123,7 @@
                     <select id="provincia" name="provincia" class="form-control select2">
                         <option value="">Seleccione</option>
                     </select>
-                    <span class="text-danger msg_error" id="provincia__error"></span><br>
+                    <span class="text-danger msg_error" id="provincia_id__error"></span><br>
                 </div>
 
                 <div class="form group col-sm-12 col-md-4">
@@ -129,7 +131,7 @@
                     <select id="distrito" name="distrito" class="form-control select2">
                         <option value="">Seleccione</option>
                     </select>
-                    <span class="text-danger msg_error" id="distrito__error"></span><br>
+                    <span class="text-danger msg_error" id="distrito_id__error"></span><br>
                 </div>
 
                 <div class="form group mt-2 w-75 d-flex justify-content-around m-auto" style="max-width: 400px;">
@@ -150,7 +152,7 @@
         <!-- DATOS DETALLE RECLAMACION-->
         <div class="card mt-4">
             <div class="card-header d-flex">
-                <h4><i class="bi bi-person-circle text-danger"></i>  <strong>Detalle de la Reclamación y Pedido del Consumidor</strong></h4>
+                <h4><i class="bi bi-file-earmark-medical-fill text-danger"></i>  <strong>Detalle de la Reclamación y Pedido del Consumidor</strong></h4>
                 <span class="text-danger txt_obligatorio"><i><strong>    Datos Obligatorios *</i></strong></span>
             </div>
 
@@ -160,6 +162,8 @@
                     <label>Tienda<span class="text-danger"> *</span></label>
                     <select id="tienda" name="tienda" class="form-control select2">
                         <option value="">Seleccione</option>
+                        <option value="TIENDA_01">Tienda 01</option>
+                        <option value="TIENDA_02">Tienda 02</option>
                     </select>
                     <span class="text-danger msg_error" id="tienda__error"></span><br>
                 </div>
@@ -217,21 +221,21 @@
                 <!--FECHA COMPRA-->
                 <div class="form group col-sm-12 col-md-3">
                     <label>Fecha de Compra</label>
-                    <input type="text" id="fecha_compra" name="fecha_compra" class="form-control">
+                    <input type="date" id="fecha_compra" name="fecha_compra" class="form-control">
                     <span class="text-danger msg_error" id="fecha_compra__error"> </span><br>
                 </div>
 
                 <!--FECHA CONSUMO-->
                 <div class="form group col-sm-12 col-md-3">
                     <label>Fecha de Consumo</label>
-                    <input type="text" id="fecha_consumo" name="fecha_consumo" class="form-control">
+                    <input type="date" id="fecha_consumo" name="fecha_consumo" class="form-control">
                     <span class="text-danger msg_error" id="fecha_consumo__error"> </span><br>
                 </div>
 
                 <!--FECHA COMPRA-->
                 <div class="form group col-sm-12 col-md-3">
                     <label>Fecha de Vencimiento</label>
-                    <input type="text" id="fecha_vencimiento" name="fecha_vencimiento" class="form-control">
+                    <input type="date" id="fecha_vencimiento" name="fecha_vencimiento" class="form-control">
                     <span class="text-danger msg_error" id="fecha_vencimiento__error"> </span><br>
                 </div>
 
@@ -297,25 +301,33 @@
                             Declaro ser el titular del servicio y acepto el contenido del presente formulario manifestando bajo Declaración Jurada la veracidad de los hechos descritos.
                         </label>
                         
-                        <ul class="mt-2">
+                        <ul class="mt-2" style="margin-bottom: 0;">
                             <li>La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante Indecopi.</li>
                             <li>El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario, pudiendo ampliar el plazo hasta por treinta días.</li>
                             <li>Mediante la suscripción del presente documento el cliente autoriza a que lo contacten luego de atendido el reclamo a fin de evaluar la calidad y satisfacción con el proceso de atención de reclamos.</li>
                         </ul>
+                        <span class="text-danger msg_error" id="check_declaracion_titular__error"> </span><br><br>
                     </div>
 
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="check_terminos_condiciones">
                         <label class="form-check-label" for="terminos_condiciones">
                             He Leído y acepto la Política de Privacidad y Seguridad y la Política de Cookies"
-                        </label>
+                        </label><br>
+                        <span class="text-danger msg_error" id="check_terminos_condiciones__error"> </span><br>
                     </div>
 
                 </div>
 
                 <div class="col-12 d-flex justify-content-center">                   
-                    <button id="btnEnviar" class="mt-4 btn btn-dark" style="width: 150px;">ENVIAR</button>
+                    <button id="btnEnviar" type="button" class="mt-4 btn btn-dark" style="width: 150px;">ENVIAR</button>
                 </div>
+                
+                <div class="col-12 d-flex justify-content-center" style="margin-top: 20px;">                   
+                    <!-- <a class="btn btn-outline-danger" href="https://www.jair.educationhost.cloud/libro_reclamos/api/data/data.csv">obtener data reclamos csv</a> -->
+                    <a href="http://localhost/libroReclamos/api/data/data.csv">obtener data reclamos csv</a>
+                </div>
+                
             </div>
         </div>
 
@@ -328,6 +340,8 @@
     
     
     <script src="./resources/js/main.js"></script>
+    <script src="./resources/js/ubigeo.js"></script>
+    
 </body>
 
 </html>
